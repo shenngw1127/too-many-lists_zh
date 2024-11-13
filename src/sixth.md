@@ -1,4 +1,4 @@
-# 7. 产品级的不安全的双向链接双端队列
+# 7. 产品级的不安全的双链双端队列
 
 我们终于成功了。我最大的敌人是[**`std::collections::LinkedList`**](https://github.com/rust-lang/rust/blob/master/library/alloc/src/collections/linked_list.rs)，即双向链表。
 
@@ -2453,7 +2453,7 @@ test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; 
 - 🚫 做一些[奇怪的侵入性的事情](https://docs.rs/linked-hash-map/latest/linked_hash_map/)
 - 🚫 做一些[奇怪的无锁的事情](https://doc.rust-lang.org/std/sync/mpsc/)
 - 🚫 可以存储[动态大小的类型](https://doc.rust-lang.org/nomicon/exotic-sizes.html#dynamically-sized-types-dsts)
-- 🌟 `O(1)`性能的推送/弹出，无需[额外开销销](https://en.wikipedia.org/wiki/Amortized_analysis)（如果你愿意相信`malloc`是`O(1)`）
+- 🌟 `O(1)`性能的推送/弹出，无需[额外开销](https://en.wikipedia.org/wiki/Amortized_analysis)（如果你愿意相信`malloc`是`O(1)`）
 - 🚫 `O(1)`性能的列表拆分
 - 🚫 `O(1)`性能的列表拼接
 
