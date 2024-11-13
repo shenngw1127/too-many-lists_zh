@@ -1,0 +1,14 @@
+[book]
+title = "通过完成完整的链表学习Rust"
+author = "Aria Desires"
+description = "通过完成完整的链表学习Rust"
+
+[build]
+build-dir = "book"
+create-missing = false
+
+[output.html]
+git-repository-url = "https://github.com/shenngw1127/too-many-lists_zh.git"
+
+[output.html.search]
+limit-results = 30
