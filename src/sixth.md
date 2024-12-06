@@ -300,7 +300,7 @@ impl<T> NonNull<T> {
 }
 ```
 
-不。这里没有魔法！`NonNull`只是滥用了`*const T`是协变的事实，并将其存储起来，在API边界上在`*mut T`之间来回转换，使其“看起来像”存储了一个`*mut T`。这就是整个技巧！这样Rust中的集合就做到了是协变的！这太糟糕了！所以我设计了这个“好指针类型”（`NonNull`）为你做了这件事！不客气！好好享受这个用来处理子类型的脚枪吧！
+不。这里没有魔法！`NonNull`只是滥用了`*const T`是协变的事实，并将其存储起来，在API边界上在`*mut T`之间来回转换，使其“看起来像”存储了一个`*mut T`。这就是整个技巧！这样Rust中的集合就做到了是协变的！这太糟糕了！所以我设计了这个“好指针类型”（`NonNull`）为你做了这件事！不客气！好好享受这个用来处理子类型的脚枪（容易打到自己脚的枪——容易犯错的武器）吧！
 
 解决所有问题的方法是使用`NonNull`，然后如果您想再次拥有可空指针，请使用`Option<NonNull<T>>`。我们真的要费心去做这件事吗？
 
@@ -2452,7 +2452,7 @@ test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; 
 
 - 🚫 做一些[奇怪的侵入性的事情](https://docs.rs/linked-hash-map/latest/linked_hash_map/)
 - 🚫 做一些[奇怪的无锁的事情](https://doc.rust-lang.org/std/sync/mpsc/)
-- 🚫 可以存储[动态大小的类型](https://doc.rust-lang.org/nomicon/exotic-sizes.html#dynamically-sized-types-dsts)
+- 🚫 可以存储[动态大小的类型](https://doc.rust-lang.org/nomicon/exotic-sizes.html#dynamically-sized-types-dsts)，就像`Box`可以存储`?Sized`一样
 - 🌟 `O(1)`性能的推送/弹出，无需[额外开销](https://en.wikipedia.org/wiki/Amortized_analysis)（如果你愿意相信`malloc`是`O(1)`）
 - 🚫 `O(1)`性能的列表拆分
 - 🚫 `O(1)`性能的列表合并
